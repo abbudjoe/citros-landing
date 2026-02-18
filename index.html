@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Citros — Something Is Waking Up</title>
+<title>Citros — Give Your Phone Agency</title>
 
 <!-- Favicon & Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -14,14 +14,14 @@
 <!-- Open Graph / Link Preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://citros.ai/">
-<meta property="og:title" content="Citros — Something Is Waking Up">
-<meta property="og:description" content="Intelligence that lives on your device. Not in a data center. The interface is about to transform.">
+<meta property="og:title" content="Citros — Give Your Phone Agency">
+<meta property="og:description" content="An AI agent that lives on your Android phone. Controls any app. Speaks and listens. Try the alpha.">
 <meta property="og:image" content="https://citros.ai/og-image.jpg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Citros — Something Is Waking Up">
-<meta name="twitter:description" content="Intelligence that lives on your device. The interface is about to transform.">
+<meta name="twitter:title" content="Citros — Give Your Phone Agency">
+<meta name="twitter:description" content="An AI agent that lives on your Android phone. Controls any app. Speaks and listens. Try the alpha.">
 <meta name="twitter:image" content="https://citros.ai/og-image.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,11 +205,6 @@ nav.scrolled {
   margin: 0 auto;
 }
 
-.section-full {
-  max-width: none;
-  padding: 160px 0;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -226,75 +221,92 @@ nav.scrolled {
 .reveal-delay-2 { transition-delay: 0.3s; }
 .reveal-delay-3 { transition-delay: 0.45s; }
 
-/* ── THE PROBLEM ── */
-.problem-section {
+/* ── WHAT IS CITROS ── */
+.about-section {
   padding: 200px 48px;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-.stat-text {
-  font-size: clamp(42px, 7vw, 80px);
+.about-headline {
+  font-size: clamp(36px, 6vw, 56px);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 40px;
+  line-height: 1.15;
+  margin-bottom: 32px;
 }
 
-.stat-text .highlight {
+.about-headline .highlight {
   background: linear-gradient(135deg, var(--accent), var(--accent-warm));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.problem-body {
+.about-body {
   font-size: clamp(16px, 2vw, 20px);
   color: var(--text-dim);
   line-height: 1.7;
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
-/* ── THE SHIFT ── */
-.shift-section {
-  padding: 200px 48px;
+/* ── SCREENSHOTS ── */
+.screenshots-section {
+  padding: 120px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.screenshots-header {
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.shift-question {
-  font-size: clamp(36px, 6vw, 72px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 60px;
-  max-width: 800px;
+.screenshot-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
 }
 
-.shift-answer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.screenshot-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(245,158,11,0.1);
 }
 
-.shift-line {
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 300;
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+.screenshot-label {
+  text-align: center;
+  padding: 16px 12px;
+  font-size: 13px;
   color: var(--text-dim);
-  line-height: 1.5;
-  padding-left: 24px;
-  border-left: 2px solid var(--accent-glow);
-  transition: border-color 0.6s, color 0.6s;
+  letter-spacing: 0.02em;
 }
 
-.shift-line.visible {
-  border-left-color: var(--accent);
-  color: rgba(255,255,255,0.75);
-}
-
-/* ── PRINCIPLES ── */
+/* ── FEATURES / PRINCIPLES ── */
 .principles-section {
   padding: 200px 48px;
   max-width: 1200px;
@@ -359,40 +371,7 @@ nav.scrolled {
   opacity: 0.6;
 }
 
-/* ── HORIZON ── */
-.horizon-section {
-  padding: 200px 48px;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.horizon-eyebrow {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 32px;
-}
-
-.horizon-headline {
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 32px;
-}
-
-.horizon-body {
-  font-size: clamp(16px, 2vw, 20px);
-  color: var(--text-dim);
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* ── CTA / WAITLIST ── */
+/* ── CTA / ALPHA ── */
 .cta-section {
   position: relative;
   padding: 200px 48px;
@@ -484,21 +463,117 @@ nav.scrolled {
   transform: translateY(0);
 }
 
-.waitlist-success {
-  display: none;
-  position: relative;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--accent);
-  max-width: 520px;
-  margin: 0 auto;
-}
-
 .waitlist-note {
   position: relative;
   font-size: 13px;
   color: var(--text-faint);
   margin-top: 16px;
+}
+
+/* ── DOWNLOAD SECTION (hidden until email submitted) ── */
+.download-section {
+  display: none;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.download-success-msg {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+
+.download-btn {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 48px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #050505;
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.3s;
+  margin-bottom: 48px;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(245,158,11,0.35);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+/* ── SIDELOAD GUIDE ── */
+.sideload-guide {
+  text-align: left;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.sideload-guide h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: var(--accent);
+}
+
+.sideload-steps {
+  list-style: none;
+  counter-reset: steps;
+}
+
+.sideload-steps li {
+  counter-increment: steps;
+  position: relative;
+  padding-left: 48px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.sideload-steps li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.sideload-note {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: rgba(245,158,11,0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 /* ── FOOTER ── */
@@ -553,13 +628,25 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 16px 24px; }
-  .section, .problem-section, .shift-section, .principles-section,
-  .horizon-section, .cta-section { padding-left: 24px; padding-right: 24px; }
+  .about-section, .screenshots-section, .principles-section,
+  .cta-section { padding-left: 24px; padding-right: 24px; }
   .principles-grid { grid-template-columns: 1fr; gap: 40px; }
   .waitlist-form { flex-direction: column; }
   .waitlist-input, .waitlist-btn { width: 100%; }
-  .problem-section, .shift-section, .principles-section,
-  .horizon-section, .cta-section { padding-top: 120px; padding-bottom: 120px; }
+  .about-section, .principles-section,
+  .cta-section { padding-top: 120px; padding-bottom: 120px; }
+  .screenshots-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .sideload-guide { padding: 24px; }
+}
+
+@media (max-width: 480px) {
+  .screenshots-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
 }
 </style>
 </head>
@@ -568,7 +655,7 @@ footer {
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">citr<span>o</span>s</a>
-  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  <a href="#alpha" class="nav-cta">Try the Alpha</a>
 </nav>
 
 <!-- AMBIENT PARTICLES -->
@@ -579,7 +666,7 @@ footer {
   <div id="canvas-container"></div>
   <div class="hero-content">
     <h1 class="hero-title">citros</h1>
-    <p class="hero-subtitle">Something is waking up.</p>
+    <p class="hero-subtitle">Give your phone agency.</p>
   </div>
   <div class="scroll-indicator">
     <span>Scroll</span>
@@ -587,91 +674,101 @@ footer {
   </div>
 </section>
 
-<!-- THE PROBLEM -->
-<section class="problem-section">
+<!-- WHAT IS CITROS -->
+<section class="about-section">
   <div class="reveal">
-    <p class="stat-text">
-      You unlock your phone <span class="highlight">150 times</span> a day.
-    </p>
+    <h2 class="about-headline">What is <span class="highlight">Citros</span>?</h2>
   </div>
   <div class="reveal reveal-delay-1">
-    <p class="problem-body">
-      You navigate. You tap. You wait. You switch apps. You repeat.
-      Your most personal device demands everything of you — and nothing of itself.
+    <p class="about-body">
+      Citros is an AI agent that lives on your Android phone. It can see your screen, control any app, and talk to you.
     </p>
   </div>
 </section>
 
 <div class="glow-divider"></div>
 
-<!-- THE SHIFT -->
-<section class="shift-section">
+<!-- SCREENSHOTS -->
+<section class="screenshots-section">
   <div class="reveal">
-    <h2 class="shift-question">What if your phone could think?</h2>
+    <p class="screenshots-header">See it in action</p>
   </div>
-  <div class="shift-answer">
-    <p class="shift-line reveal reveal-delay-1">Not a chatbot you talk to. Not an assistant that waits for commands.</p>
-    <p class="shift-line reveal reveal-delay-2">Something that perceives, reasons, and acts — entirely on its own.</p>
-    <p class="shift-line reveal reveal-delay-3">A presence that turns your phone from an input surface into an awareness surface.</p>
+  <div class="screenshots-grid">
+    <div class="screenshot-card reveal reveal-delay-1">
+      <img src="screenshots/welcome.jpg" alt="Citros welcome screen" loading="lazy">
+      <p class="screenshot-label">Welcome</p>
+    </div>
+    <div class="screenshot-card reveal reveal-delay-1">
+      <img src="screenshots/chat.jpg" alt="Citros chat interface" loading="lazy">
+      <p class="screenshot-label">Chat</p>
+    </div>
+    <div class="screenshot-card reveal reveal-delay-2">
+      <img src="screenshots/style.jpg" alt="Citros style picker" loading="lazy">
+      <p class="screenshot-label">Style</p>
+    </div>
+    <div class="screenshot-card reveal reveal-delay-2">
+      <img src="screenshots/onboarding.jpg" alt="Citros onboarding" loading="lazy">
+      <p class="screenshot-label">Onboarding</p>
+    </div>
   </div>
 </section>
 
 <div class="glow-divider"></div>
 
-<!-- PRINCIPLES -->
+<!-- FEATURES -->
 <section class="principles-section">
   <div class="reveal">
-    <p class="principles-header">Built different</p>
+    <p class="principles-header">What it can do</p>
   </div>
   <div class="principles-grid">
     <div class="principle reveal reveal-delay-1">
-      <h3 class="principle-title">Lives on your device.</h3>
-      <p class="principle-desc">Not in a data center. Not behind a gateway. Intelligence that runs where your life happens — in your hand.</p>
+      <h3 class="principle-title">Controls any app.</h3>
+      <p class="principle-desc">Uses Android's accessibility service to tap, type, scroll, and navigate — in any app, not just its own.</p>
     </div>
     <div class="principle reveal reveal-delay-2">
-      <h3 class="principle-title">Secure by architecture.</h3>
-      <p class="principle-desc">Hardware-backed encryption. Append-only audit trails. A physical trust boundary between intention and action. Security isn't a feature — it's the foundation.</p>
+      <h3 class="principle-title">Speaks and listens.</h3>
+      <p class="principle-desc">On-device voice with sherpa-onnx. No cloud STT/TTS. Conversations happen naturally.</p>
     </div>
     <div class="principle reveal reveal-delay-3">
-      <h3 class="principle-title">The post-app era.</h3>
-      <p class="principle-desc">Apps were designed for humans to navigate. What comes next is designed for intelligence to orchestrate. The interface disappears. The capability remains.</p>
+      <h3 class="principle-title">Your keys, your models.</h3>
+      <p class="principle-desc">Bring your own API key. Choose your AI provider. Hardware-encrypted storage keeps credentials safe.</p>
     </div>
   </div>
 </section>
 
 <div class="glow-divider"></div>
 
-<!-- HORIZON -->
-<section class="horizon-section">
+<!-- TRY THE ALPHA -->
+<section class="cta-section" id="alpha">
   <div class="reveal">
-    <p class="horizon-eyebrow">Three horizons</p>
+    <h2 class="cta-headline">Try the Alpha</h2>
   </div>
   <div class="reveal reveal-delay-1">
-    <h2 class="horizon-headline">From proof of concept to purpose-built hardware.</h2>
-  </div>
-  <div class="reveal reveal-delay-2">
-    <p class="horizon-body">
-      We're building in the open — Rust from the ground up, local-first intelligence, and a roadmap that leads from a single phone to an entirely new kind of device.
-    </p>
-  </div>
-</section>
-
-<div class="glow-divider"></div>
-
-<!-- CTA -->
-<section class="cta-section" id="waitlist">
-  <div class="reveal">
-    <h2 class="cta-headline">The interface is about<br>to transform.</h2>
-  </div>
-  <div class="reveal reveal-delay-1">
-    <p class="cta-sub">Be among the first to experience what comes next.</p>
+    <p class="cta-sub">Enter your email to get the download link.</p>
   </div>
   <form class="waitlist-form reveal reveal-delay-2" id="waitlistForm">
     <input type="email" class="waitlist-input" placeholder="your@email.com" required autocomplete="email">
-    <button type="submit" class="waitlist-btn">Join Waitlist</button>
+    <button type="submit" class="waitlist-btn">Get Access</button>
   </form>
-  <p class="waitlist-success" id="waitlistSuccess">You're on the list. We'll be in touch.</p>
-  <p class="waitlist-note reveal reveal-delay-2">No spam. Just signal.</p>
+  <p class="waitlist-note reveal reveal-delay-2" id="waitlistNote">No spam. Just signal.</p>
+
+  <!-- DOWNLOAD (shown after email) -->
+  <div class="download-section" id="downloadSection">
+    <p class="download-success-msg">You're in. Download the APK below.</p>
+    <a href="https://github.com/abbudjoe/citros/releases/download/android-v0.1.0/citros-v0.1.0.apk" class="download-btn">Download Citros APK</a>
+    <div class="sideload-guide">
+      <h3>How to install</h3>
+      <ol class="sideload-steps">
+        <li>Download the APK file</li>
+        <li>Open it on your Android device (or transfer from computer)</li>
+        <li>Tap "Install" — Android will ask to allow installs from this source, tap "Allow"</li>
+        <li>Open Citros and follow the onboarding</li>
+      </ol>
+      <div class="sideload-note">
+        Requires Android 12 or later. The app uses the Accessibility Service to control your phone — you'll be prompted to enable it during setup.
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -715,7 +812,7 @@ footer {
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   reveals.forEach(el => revealObserver.observe(el));
 
-  // ─── WAITLIST FORM ───
+  // ─── ALPHA FORM ───
   document.getElementById('waitlistForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const email = this.querySelector('.waitlist-input').value;
@@ -726,16 +823,18 @@ footer {
     fetch('https://formsubmit.co/ajax/joe@citros.ai', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, _subject: 'Citros Waitlist Signup', _template: 'table' })
+      body: JSON.stringify({ email: email, _subject: 'Citros Alpha Signup', _template: 'table' })
     })
     .then(r => r.json())
     .then(() => {
-      this.style.display = 'none';
-      document.getElementById('waitlistSuccess').style.display = 'block';
+      document.getElementById('waitlistForm').style.display = 'none';
+      document.getElementById('waitlistNote').style.display = 'none';
+      document.getElementById('downloadSection').style.display = 'block';
     })
     .catch(() => {
-      this.style.display = 'none';
-      document.getElementById('waitlistSuccess').style.display = 'block';
+      document.getElementById('waitlistForm').style.display = 'none';
+      document.getElementById('waitlistNote').style.display = 'none';
+      document.getElementById('downloadSection').style.display = 'block';
     });
   });
 
