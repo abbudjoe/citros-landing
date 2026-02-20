@@ -16,16 +16,12 @@ export default async function handler(req: Request) {
     return jsonError('Method not allowed', 405);
   }
 
-  // Simple app token auth — rotate server-side if leaked
-  const appToken = process.env.CITROS_APP_TOKEN;
-  if (appToken) {
-    const auth = req.headers.get('Authorization');
-    if (auth !== `Bearer ${appToken}`) {
-      return jsonError('Unauthorized', 401);
-    }
-  }
-
   const keys: Record<string, string | undefined> = {};
+
+  // App token for authenticating to other Citros API endpoints (e.g., /api/search)
+  if (process.env.CITROS_APP_TOKEN) {
+    keys.appToken = process.env.CITROS_APP_TOKEN;
+  }
 
   if (process.env.TINYFISH_API_KEY) {
     keys.tinyfish = process.env.TINYFISH_API_KEY;

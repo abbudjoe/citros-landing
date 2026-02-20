@@ -22,6 +22,15 @@ export default async function handler(req: Request) {
     return jsonError('Method not allowed', 405);
   }
 
+  // App token auth — same as /api/keys
+  const appToken = process.env.CITROS_APP_TOKEN;
+  if (appToken) {
+    const auth = req.headers.get('Authorization');
+    if (auth !== `Bearer ${appToken}`) {
+      return jsonError('Unauthorized', 401);
+    }
+  }
+
   const apiKey = process.env.BRAVE_API_KEY;
   if (!apiKey) {
     return jsonError('Search service not configured', 503);
@@ -85,6 +94,6 @@ function corsHeaders(): Record<string, string> {
   return {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   };
 }
