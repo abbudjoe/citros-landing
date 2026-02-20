@@ -1,11 +1,15 @@
 export const config = { runtime: 'edge' };
 
 /**
- * Key delivery endpoint. Returns API keys that the app needs for direct
- * connections (e.g., TinyFish SSE streaming that can't be proxied).
+ * Key delivery endpoint. Returns server-side API keys that the app needs
+ * for direct connections (e.g., TinyFish SSE streaming).
  *
- * Keys live in Vercel env vars — never hardcoded in the APK.
- * App authenticates with a shared app token, rotatable server-side.
+ * Requires Bearer auth with the compiled app token. This prevents
+ * unauthenticated access — only APK builds with the matching token
+ * can fetch keys. Token is rotated via scripts/release.sh.
+ *
+ * The app token itself is NOT returned here (it's compiled into the APK).
+ * Only third-party keys that need server-side rotation are delivered.
  */
 export default async function handler(req: Request) {
   if (req.method === 'OPTIONS') {
@@ -18,12 +22,20 @@ export default async function handler(req: Request) {
 
   const env = (globalThis as { process?: { env?: Record<string, string | undefined> } })
     .process?.env ?? {};
-  const keys: Record<string, string | undefined> = {};
 
-  // App token for authenticating to other Citros API endpoints (e.g., /api/search)
-  if (env.CITROS_APP_TOKEN) {
-    keys.appToken = env.CITROS_APP_TOKEN;
+  // Require Bearer auth with the compiled app token.
+  const appToken = env.CITROS_APP_TOKEN;
+  if (!appToken) {
+    return jsonError('Service not configured', 503);
   }
+
+  const auth = req.headers.get('Authorization');
+  if (auth !== `Bearer ${appToken}`) {
+    return jsonError('Unauthorized', 401);
+  }
+
+  // Only deliver third-party keys — app token is compiled into APK.
+  const keys: Record<string, string | undefined> = {};
 
   if (env.TINYFISH_API_KEY) {
     keys.tinyfish = env.TINYFISH_API_KEY;
