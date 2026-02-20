@@ -30,7 +30,7 @@ export default async function handler(req: Request) {
   let body: SearchRequest;
   try {
     body = await req.json();
-  } catch {
+  } catch (_) {
     return jsonError('Invalid JSON body', 400);
   }
 
@@ -54,7 +54,7 @@ export default async function handler(req: Request) {
     });
 
     if (!res.ok) {
-      const text = await res.text().catch(() => '');
+      await res.text().catch(() => '');
       return jsonError(`Brave API error (${res.status})`, res.status >= 500 ? 502 : res.status);
     }
 
@@ -66,7 +66,7 @@ export default async function handler(req: Request) {
         ...corsHeaders(),
       },
     });
-  } catch (e: any) {
+  } catch (_) {
     return jsonError('Search request failed', 502);
   }
 }
