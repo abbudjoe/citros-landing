@@ -1,12 +1,4 @@
 {
-  "functions": {
-    "api/search.ts": {
-      "runtime": "edge"
-    },
-    "api/keys.ts": {
-      "runtime": "edge"
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
