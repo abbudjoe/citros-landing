@@ -16,19 +16,21 @@ export default async function handler(req: Request) {
     return jsonError('Method not allowed', 405);
   }
 
+  const env = (globalThis as { process?: { env?: Record<string, string | undefined> } })
+    .process?.env ?? {};
   const keys: Record<string, string | undefined> = {};
 
   // App token for authenticating to other Citros API endpoints (e.g., /api/search)
-  if (process.env.CITROS_APP_TOKEN) {
-    keys.appToken = process.env.CITROS_APP_TOKEN;
+  if (env.CITROS_APP_TOKEN) {
+    keys.appToken = env.CITROS_APP_TOKEN;
   }
 
-  if (process.env.TINYFISH_API_KEY) {
-    keys.tinyfish = process.env.TINYFISH_API_KEY;
+  if (env.TINYFISH_API_KEY) {
+    keys.tinyfish = env.TINYFISH_API_KEY;
   }
 
   // Add future keys here as needed:
-  // if (process.env.SOME_OTHER_KEY) keys.someOther = process.env.SOME_OTHER_KEY;
+  // if (env.SOME_OTHER_KEY) keys.someOther = env.SOME_OTHER_KEY;
 
   return new Response(JSON.stringify({ keys }), {
     status: 200,
